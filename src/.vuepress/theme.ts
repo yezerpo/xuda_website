@@ -5,7 +5,6 @@ import sidebar from "./sidebar.js";
 
 export default hopeTheme({
   hostname: "https://xuda.live",
-  logo: "/common/none.png",
   repo: "vuepress-theme-hope/vuepress-theme-hope",
 
   docsDir: "src",
@@ -36,7 +35,6 @@ export default hopeTheme({
       imgSize: true,
       tabs: true,
       include: true,
-      chartjs: true,
     },
 
   // 在这里配置主题提供的插件
