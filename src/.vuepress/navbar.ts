@@ -14,7 +14,7 @@ export default navbar([
   },
   {
     text: "下载中心",
-    icon: "book",
+    icon: "vaadin:download",
     link: "/dlcenter/",
   },
 ]);

@@ -6,7 +6,6 @@ import sidebar from "./sidebar.js";
 export default hopeTheme({
   hostname: "https://xuda.live",
   repo: "yezerpo/xuda_website",
-
   docsDir: "src",
 
   // 导航栏
