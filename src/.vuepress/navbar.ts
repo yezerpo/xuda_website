@@ -8,6 +8,11 @@ export default navbar([
     link: "/freshman/",
   },
   {
+      text: "资料库",
+      icon: "circle-info",
+      children: ["archived/foodsafety.md"],
+  },
+  {
     text: "下载中心",
     icon: "book",
     link: "/dlcenter/",

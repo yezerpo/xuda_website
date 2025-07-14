@@ -5,7 +5,7 @@ import sidebar from "./sidebar.js";
 
 export default hopeTheme({
   hostname: "https://xuda.live",
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  repo: "yezerpo/xuda_website",
 
   docsDir: "src",
 
@@ -16,7 +16,8 @@ export default hopeTheme({
   sidebar,
 
   // 页脚
-  footer: "页脚占位符",
+  footer: "占位",
+  copyright: "CC BY-NC-ND 4.0",
   displayFooter: true,
 
   // 多语言配置
@@ -29,18 +30,16 @@ export default hopeTheme({
   // 仅保留用到的功能。
     markdown: {
       component: true,
-      align: true,
-      tasklist: true,
       imgLazyload: true,
       imgSize: true,
       tabs: true,
-      include: true,
+      hint: true,
     },
 
   // 在这里配置主题提供的插件
   plugins: {
     components: {
-      components: ["VPCard", "VPBanner"],
+      components: ["VPCard"],
     },
 
     icon: {
