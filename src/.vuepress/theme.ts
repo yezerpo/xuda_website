@@ -41,6 +41,11 @@ export default hopeTheme({
       components: ["VPCard"],
     },
 
+    comment: {
+      provider: "Twikoo",
+      envId: "https://cmts.yezer.cn",
+    },
+
     icon: {
       prefix: "fa6-solid:",
     },
