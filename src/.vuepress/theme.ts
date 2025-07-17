@@ -33,12 +33,14 @@ export default hopeTheme({
       imgSize: true,
       tabs: true,
       hint: true,
+      footnote: true,
+      mark: true,
     },
 
   // 在这里配置主题提供的插件
   plugins: {
     components: {
-      components: ["VPCard"],
+      components: ["VPCard","Badge"],
     },
 
     comment: {

@@ -18,3 +18,11 @@ a.route-link.auto-link.vp-hero-action.primary {
   	background: linear-gradient(45deg, #93291e, #ff4b2b);
   	border: none;
 }
+
+.tk-footer {
+    display: none;
+}
+
+.vp-tabs-nav { display: none; }
+.vp-tabs-nav:has(button[aria-selected="false"]) { display: block; }
+.vp-tab { border-radius: var(--tab-border-radius) !important; }
