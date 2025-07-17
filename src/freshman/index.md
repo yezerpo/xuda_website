@@ -1,5 +1,6 @@
 ---
 title: 新生知道
+icon: streamline-sharp-color:select-all-flat
 order: 1
 ---
 
