@@ -1,9 +1,15 @@
+.sr-only { 
+  clip: rect(0, 0, 0, 0);
+}
+
 .vp-hero-info-wrapper {
 	min-height: 400px;
 }
+
 .vp-highlight-item-wrapper {
 	transition: all 300ms;
 }
+
 .vp-feature-item {
 	@media (width >= 1440px) {
 		flex-basis: calc(33% - 3rem);
