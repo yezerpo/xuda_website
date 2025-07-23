@@ -16,20 +16,16 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          # 如果你文档需要 Git 子模块，取消注释下一行
-          # submodules: true
-
       - name: 设置 pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: latest  # 明确指定pnpm版本
+          version: latest
 
       - name: 设置 Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'pnpm'
-          # 显式指定pnpm缓存路径
           cache-dependency-path: |
             **/pnpm-lock.yaml
 
@@ -66,5 +62,4 @@ jobs:
 
       - name: 上传到腾讯云 COS
         run: |
-          # 同步本地目录到COS，删除COS上不存在的文件
           coscmd upload -r -f src/.vuepress/dist/ / --delete
