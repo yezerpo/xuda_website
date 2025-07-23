@@ -15,7 +15,7 @@ export default hopeTheme({
   sidebar,
 
   // 页脚
-  footer: "占位",
+  footer: "苏ICP备2024137980号",
   copyright: "CC BY-NC-ND 4.0",
   displayFooter: true,
 
