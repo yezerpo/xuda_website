@@ -11,6 +11,9 @@ importers:
       '@vuepress/bundler-vite':
         specifier: 2.0.0-rc.24
         version: 2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2)
+      '@vuepress/plugin-meilisearch':
+        specifier: 2.0.0-rc.112
+        version: 2.0.0-rc.112(vuepress@2.0.0-rc.24(@vuepress/bundler-vite@2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2))(vue@3.5.18))
       sass-embedded:
         specifier: ^1.89.2
         version: 1.89.2
@@ -25,7 +28,7 @@ importers:
         version: 2.0.0-rc.24(@vuepress/bundler-vite@2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2))(vue@3.5.18)
       vuepress-theme-hope:
         specifier: 2.0.0-rc.94
-        version: 2.0.0-rc.94(markdown-it@14.1.0)(sass-embedded@1.89.2)(twikoo@1.6.44)(vuepress@2.0.0-rc.24(@vuepress/bundler-vite@2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2))(vue@3.5.18))
+        version: 2.0.0-rc.94(@vuepress/plugin-meilisearch@2.0.0-rc.112(vuepress@2.0.0-rc.24(@vuepress/bundler-vite@2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2))(vue@3.5.18)))(markdown-it@14.1.0)(sass-embedded@1.89.2)(twikoo@1.6.44)(vuepress@2.0.0-rc.24(@vuepress/bundler-vite@2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2))(vue@3.5.18))
 
 packages:
 
@@ -893,6 +896,12 @@ packages:
     peerDependencies:
       vuepress: 2.0.0-rc.24
 
+  '@vuepress/plugin-meilisearch@2.0.0-rc.112':
+    resolution: {integrity: sha512-zAaDktVWlbxr9ywSRZIWufzRgJoBnSZ6aROCrNYIPic2mU20A7dgEbmw4XmtPQwybqfvFhSDJr6TVfHuPz+i1Q==}
+    hasBin: true
+    peerDependencies:
+      vuepress: 2.0.0-rc.24
+
   '@vuepress/plugin-notice@2.0.0-rc.112':
     resolution: {integrity: sha512-v6QRqWuH/42WNufosxu0FBUvGXh34j81Wiuio37DqSbMcgATkrPPEdXhMI27bg+zbXhms9UTukKJ4X8JJsN9Rg==}
     peerDependencies:
@@ -1437,6 +1446,15 @@ packages:
   mdurl@2.0.0:
     resolution: {integrity: sha512-Lf+9+2r+Tdp5wXDXC4PcIBjTDtq4UKjCPMQhKIuzpJNW0b96kVqSwW0bT7FhRSfmAiFYgP+SCRvdrDozfh0U5w==}
 
+  meilisearch-docsearch@0.8.0:
+    resolution: {integrity: sha512-I0sd0z7CRSyn83ACDKbDD4PQNFCe/oZxN4pWgJbqLgLwOEICQMZLMlFVmQPQzzSb9ZkvjjJnaNPxVpZ4yi7upw==}
+
+  meilisearch@0.50.0:
+    resolution: {integrity: sha512-9IzIkobvnuS18Eg4dq/eJB9W+eXqeLZjNRgq/kKMswSmVYYSQsXqGgSuCA0JkF+o5RwJlwIsieQee6rh313VhA==}
+
+  meilisearch@0.51.0:
+    resolution: {integrity: sha512-IuNsYyT8r/QLhU33XDZdXWUT6cA/nACCHHZc+NHkNuaU55LELRxff1uBJhpJcwjYaAPEEmeWrzBhYl2XlhJdAg==}
+
   merge2@1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
@@ -1765,6 +1783,16 @@ packages:
     resolution: {integrity: sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==}
     engines: {node: '>=4'}
 
+  seroval-plugins@1.3.2:
+    resolution: {integrity: sha512-0QvCV2lM3aj/U3YozDiVwx9zpH0q8A60CTWIv4Jszj/givcudPb48B+rkU5D51NJ0pTpweGMttHjboPa9/zoIQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      seroval: ^1.0
+
+  seroval@1.3.2:
+    resolution: {integrity: sha512-RbcPH1n5cfwKrru7v7+zrZvjLurgHhGyso3HTyGtRivGWgYjbOmGuivCQaORNELjNONoK35nj28EoWul9sb1zQ==}
+    engines: {node: '>=10'}
+
   set-blocking@2.0.0:
     resolution: {integrity: sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==}
 
@@ -1783,6 +1811,9 @@ packages:
   slash@5.1.0:
     resolution: {integrity: sha512-ZA6oR3T/pEyuqwMgAKT0/hAv8oAXckzbkmR0UkUosQ+Mc4RxGoJkRmwHgHufaenlyAgE1Mxgpdcrf75y6XcnDg==}
     engines: {node: '>=14.16'}
+
+  solid-js@1.9.5:
+    resolution: {integrity: sha512-ogI3DaFcyn6UhYhrgcyRAMbu/buBJitYQASZz5WzfQVPP10RD2AbCoRZ517psnezrasyCbWzIxZ6kVqet768xw==}
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
@@ -3027,6 +3058,17 @@ snapshots:
       - markdown-it
       - typescript
 
+  '@vuepress/plugin-meilisearch@2.0.0-rc.112(vuepress@2.0.0-rc.24(@vuepress/bundler-vite@2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2))(vue@3.5.18))':
+    dependencies:
+      '@vuepress/helper': 2.0.0-rc.112(vuepress@2.0.0-rc.24(@vuepress/bundler-vite@2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2))(vue@3.5.18))
+      commander: 14.0.0
+      meilisearch: 0.51.0
+      meilisearch-docsearch: 0.8.0
+      vue: 3.5.18
+      vuepress: 2.0.0-rc.24(@vuepress/bundler-vite@2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2))(vue@3.5.18)
+    transitivePeerDependencies:
+      - typescript
+
   '@vuepress/plugin-notice@2.0.0-rc.112(vuepress@2.0.0-rc.24(@vuepress/bundler-vite@2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2))(vue@3.5.18))':
     dependencies:
       '@vuepress/helper': 2.0.0-rc.112(vuepress@2.0.0-rc.24(@vuepress/bundler-vite@2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2))(vue@3.5.18))
@@ -3659,6 +3701,15 @@ snapshots:
 
   mdurl@2.0.0: {}
 
+  meilisearch-docsearch@0.8.0:
+    dependencies:
+      meilisearch: 0.50.0
+      solid-js: 1.9.5
+
+  meilisearch@0.50.0: {}
+
+  meilisearch@0.51.0: {}
+
   merge2@1.4.1: {}
 
   micromark-util-character@2.1.1:
@@ -3957,6 +4008,12 @@ snapshots:
       extend-shallow: 2.0.1
       kind-of: 6.0.3
 
+  seroval-plugins@1.3.2(seroval@1.3.2):
+    dependencies:
+      seroval: 1.3.2
+
+  seroval@1.3.2: {}
+
   set-blocking@2.0.0: {}
 
   shiki@3.8.1:
@@ -3980,6 +4037,12 @@ snapshots:
       sax: 1.4.1
 
   slash@5.1.0: {}
+
+  solid-js@1.9.5:
+    dependencies:
+      csstype: 3.1.3
+      seroval: 1.3.2
+      seroval-plugins: 1.3.2(seroval@1.3.2)
 
   source-map-js@1.2.1: {}
 
@@ -4192,7 +4255,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  vuepress-theme-hope@2.0.0-rc.94(markdown-it@14.1.0)(sass-embedded@1.89.2)(twikoo@1.6.44)(vuepress@2.0.0-rc.24(@vuepress/bundler-vite@2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2))(vue@3.5.18)):
+  vuepress-theme-hope@2.0.0-rc.94(@vuepress/plugin-meilisearch@2.0.0-rc.112(vuepress@2.0.0-rc.24(@vuepress/bundler-vite@2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2))(vue@3.5.18)))(markdown-it@14.1.0)(sass-embedded@1.89.2)(twikoo@1.6.44)(vuepress@2.0.0-rc.24(@vuepress/bundler-vite@2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2))(vue@3.5.18)):
     dependencies:
       '@vuepress/helper': 2.0.0-rc.112(vuepress@2.0.0-rc.24(@vuepress/bundler-vite@2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2))(vue@3.5.18))
       '@vuepress/plugin-active-header-links': 2.0.0-rc.112(vuepress@2.0.0-rc.24(@vuepress/bundler-vite@2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2))(vue@3.5.18))
@@ -4235,6 +4298,7 @@ snapshots:
       vuepress-plugin-md-enhance: 2.0.0-rc.94(markdown-it@14.1.0)(sass-embedded@1.89.2)(vuepress@2.0.0-rc.24(@vuepress/bundler-vite@2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2))(vue@3.5.18))
       vuepress-shared: 2.0.0-rc.94(vuepress@2.0.0-rc.24(@vuepress/bundler-vite@2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2))(vue@3.5.18))
     optionalDependencies:
+      '@vuepress/plugin-meilisearch': 2.0.0-rc.112(vuepress@2.0.0-rc.24(@vuepress/bundler-vite@2.0.0-rc.24(@types/node@24.1.0)(sass-embedded@1.89.2))(vue@3.5.18))
       sass-embedded: 1.89.2
     transitivePeerDependencies:
       - '@vue/repl'
