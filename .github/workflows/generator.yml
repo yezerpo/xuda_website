@@ -98,9 +98,12 @@ jobs:
         env:
           TENCENT_CDN_DOMAIN: ${{ secrets.TENCENT_CDN_DOMAIN }}
         run: |
+          FULL_PATHS=$(echo "$PATHS_TO_PURGE" | sed "s|/|https://$TENCENT_CDN_DOMAIN/|g")
+          
+          echo "Full paths to purge: $FULL_PATHS"
+          
           tccli cdn PurgePathCache \
-            --Paths "$PATHS_TO_PURGE" \
-            --FlushType flush \
-            --Domain $TENCENT_CDN_DOMAIN
+            --Paths "$FULL_PATHS" \
+            --FlushType flush
           
           echo "CDN purge completed for changed files"
