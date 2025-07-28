@@ -63,19 +63,40 @@ jobs:
         run: |
           coscmd upload -rs -f src/.vuepress/dist/ / --delete
 
-      - name: Get changed files
+      - name: Get changed files in src directory
         id: get_changes
         run: |
-          git diff --name-only HEAD^ HEAD > changed_files.txt
-          changed_files.txt
-
+          # 只获取src目录下的变更文件
+          git diff --name-only HEAD^ HEAD -- 'src/**' > changed_files.txt
+          
+          # 处理路径：
+          # 1. 移除src/前缀
+          # 2. 对.md文件，转换为对应的HTML路径（VuePress默认行为）
+          # 3. 保留文件夹和其他静态资源路径
           while read -r file; do
-            echo "/${file#docs/}" >> cdn_paths.txt
+            path="${file#src/}"
+            if [[ "$path" == *.md ]]; then
+              # 处理.md文件:
+              # - index.md -> /
+              # - page.md -> /page.html
+              # - folder/page.md -> /folder/page.html
+              if [[ "$path" == "index.md" ]]; then
+                echo "/" >> cdn_paths.txt
+              else
+                echo "/${path%.md}.html" >> cdn_paths.txt
+              fi
+            else
+              # 处理其他文件和文件夹
+              echo "/$path" >> cdn_paths.txt
+            fi
           done < changed_files.txt
           
-          echo "Changed files to process:"
+          # 去重并显示要刷新的路径
+          sort -u cdn_paths.txt -o cdn_paths.txt
+          echo "Paths to purge:"
           cat cdn_paths.txt
           
+          # 保存为环境变量
           echo "PATHS_TO_PURGE=$(cat cdn_paths.txt | tr '\n' ' ')" >> $GITHUB_ENV
 
       - name: Purge changed files on Tencent CDN
