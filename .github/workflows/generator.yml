@@ -39,7 +39,6 @@ jobs:
           NODE_OPTIONS: --max_old_space_size=8192
         run: |-
           pnpm run docs:build
-          > src/.vuepress/dist/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
@@ -63,3 +62,30 @@ jobs:
       - name: Upload to Tencent Cloud COS
         run: |
           coscmd upload -rs -f src/.vuepress/dist/ / --delete
+
+      - name: Get changed files
+        id: get_changes
+        run: |
+          git diff --name-only HEAD^ HEAD > changed_files.txt
+          cat cdn_files.txt
+
+          while read -r file; do
+            echo "/${file#docs/}" >> cdn_paths.txt
+          done < changed_files.txt
+          
+          echo "Changed files to process:"
+          cat cdn_paths.txt
+          
+          echo "PATHS_TO_PURGE=$(cat cdn_paths.txt | tr '\n' ' ')" >> $GITHUB_ENV
+
+      - name: Purge changed files on Tencent CDN
+        if: env.PATHS_TO_PURGE != ''
+        env:
+          TENCENT_CDN_DOMAIN: ${{ secrets.TENCENT_CDN_DOMAIN }}
+        run: |
+          tccli cdn PurgePathCache \
+            --Paths "$PATHS_TO_PURGE" \
+            --FlushType flush \
+            --Domain $TENCENT_CDN_DOMAIN
+          
+          echo "CDN purge completed for changed files"
