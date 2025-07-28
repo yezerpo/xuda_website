@@ -67,7 +67,7 @@ jobs:
         id: get_changes
         run: |
           git diff --name-only HEAD^ HEAD > changed_files.txt
-          cat cdn_files.txt
+          changed_files.txt
 
           while read -r file; do
             echo "/${file#docs/}" >> cdn_paths.txt
