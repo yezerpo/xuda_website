@@ -46,9 +46,9 @@ jobs:
           branch: gh-pages
           folder: src/.vuepress/dist
 
-      - name: Install Tencent Cloud COS CLI
+      - name: Install coscmd and tccli
         run: |
-          pip3 install coscmd
+          pip3 install coscmd tccli
 
       - name: Configure Tencent Cloud COS
         env:
@@ -66,15 +66,11 @@ jobs:
       - name: Get changed files in src directory
         id: get_changes
         run: |
-          # 初始化变量，默认为空
           echo "PATHS_TO_PURGE=" >> $GITHUB_ENV
           
-          # 只获取src目录下的变更文件
           git diff --name-only HEAD^ HEAD -- 'src/**' > changed_files.txt
           
-          # 检查是否有变更文件
           if [ -s changed_files.txt ]; then
-            # 处理路径
             while read -r file; do
               path="${file#src/}"
               if [[ "$path" == *.md ]]; then
@@ -88,12 +84,10 @@ jobs:
               fi
             done < changed_files.txt
             
-            # 去重并显示要刷新的路径
             sort -u cdn_paths.txt -o cdn_paths.txt
             echo "Paths to purge:"
             cat cdn_paths.txt
             
-            # 保存为环境变量
             echo "PATHS_TO_PURGE=$(cat cdn_paths.txt | tr '\n' ' ')" >> $GITHUB_ENV
           else
             echo "No changed files in src directory"
