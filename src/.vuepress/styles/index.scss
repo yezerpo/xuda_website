@@ -2,6 +2,10 @@ a.vp-skip-link.sr-only{
 	display: none;
 }
 
+.docsearch-modal-footer-logo {
+	display: none;
+}
+
 .vp-hero-info-wrapper {
 	min-height: 400px;
 }
@@ -32,3 +36,8 @@ a.route-link.auto-link.vp-hero-action.primary {
 .vp-tabs-nav { display: none; }
 .vp-tabs-nav:has(button[aria-selected="false"]) { display: block; }
 .vp-tab { border-radius: var(--tab-border-radius) !important; }
+
+.vp-card-title {
+    color: #b71919;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }

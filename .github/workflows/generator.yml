@@ -12,16 +12,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: 设置 pnpm
+      - name: Set up pnpm
         uses: pnpm/action-setup@v4
         with:
           version: latest
 
-      - name: 设置 Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -29,29 +29,29 @@ jobs:
           cache-dependency-path: |
             **/pnpm-lock.yaml
 
-      - name: 安装依赖
+      - name: Install dependencies
         run: |
           corepack enable
           pnpm install --frozen-lockfile
 
-      - name: 构建文档
+      - name: Build documentation
         env:
           NODE_OPTIONS: --max_old_space_size=8192
         run: |-
           pnpm run docs:build
           > src/.vuepress/dist/.nojekyll
 
-      - name: 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: src/.vuepress/dist
 
-      - name: 安装腾讯云 COS CLI
+      - name: Install Tencent Cloud COS CLI
         run: |
           pip3 install coscmd
 
-      - name: 配置腾讯云 COS
+      - name: Configure Tencent Cloud COS
         env:
           TENCENT_COS_SECRET_ID: ${{ secrets.TENCENT_COS_SECRET_ID }}
           TENCENT_COS_SECRET_KEY: ${{ secrets.TENCENT_COS_SECRET_KEY }}
@@ -60,6 +60,6 @@ jobs:
         run: |
           coscmd config -a $TENCENT_COS_SECRET_ID -s $TENCENT_COS_SECRET_KEY -b $TENCENT_COS_BUCKET -r $TENCENT_COS_REGION
 
-      - name: 上传到腾讯云 COS
+      - name: Upload to Tencent Cloud COS
         run: |
           coscmd upload -rs -f src/.vuepress/dist/ / --delete

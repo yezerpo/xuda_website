@@ -39,6 +39,13 @@ export default hopeTheme({
 
   // 在这里配置主题提供的插件
   plugins: {
+    meilisearch: {
+      host: "https://srch.yezer.cn",
+      apiKey: "17c69ffc62f4246b894bec9f66efe23b135b58856f9fdcbdc4fbc38c9cf299cd",
+      indexUid: "xuda_website",
+      hotKeys: [],
+    },
+
     components: {
       components: ["VPCard","Badge"],
     },

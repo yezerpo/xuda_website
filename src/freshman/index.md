@@ -12,7 +12,7 @@ order: 1
     background="linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)"
   />
   <VPCard
-    title="物品准备"
+    title="物品置备"
     desc="占位符"
     link=""
     background="linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)"
