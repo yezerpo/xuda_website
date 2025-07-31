@@ -45,14 +45,14 @@ export default hopeTheme({
       indexUid: "xuda_website",
       hotKeys: [],
     },
-
-    components: {
-      components: ["VPCard","Badge"],
-    },
-
+    
     comment: {
       provider: "Twikoo",
       envId: "https://cmts.yezer.cn",
+    },
+
+    components: {
+      components: ["VPCard","Badge"],
     },
 
     icon: {
