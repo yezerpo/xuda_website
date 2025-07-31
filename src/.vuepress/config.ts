@@ -17,7 +17,7 @@ export default defineUserConfig({
 
   plugins: [
     umamiAnalyticsPlugin({
-      id: 'your-website-unique-id',
+      id: '591b5dd1-567f-44ee-9b65-e9eae43ee773',
       link: 'https://sta.yezer.cn/script.js',
       autoTrack: true,
       cache: true,
