@@ -72,11 +72,15 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Generate Only URLs
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: true
 
+      - name: Generate Only URLs
         run: pnpm vp-meilisearch-scrapper scr/ scraper.json
 
-      - name: 运行抓取器
+      - name: Run Docs-Scraper
         env:
           HOST_URL: https://srch.yezer.cn/
           API_KEY: ${{ secrets.MEILISEARCH_MASTER_KEY }}
