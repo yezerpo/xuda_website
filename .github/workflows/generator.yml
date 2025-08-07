@@ -72,10 +72,10 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Install pnpm
+      - name: Set up pnpm
         uses: pnpm/action-setup@v4
         with:
-          run_install: true
+          version: latest
 
       - name: Generate Only URLs
         run: pnpm vp-meilisearch-scrapper scr/ scraper.json
