@@ -102,7 +102,8 @@ jobs:
       - name: Generate Only URLs
           
         run: |
-          cd ${{ github.workspace }}/node_modules/@vuepress/plugin-meilisearch/node_modules/.bin/
+          ls
+          cd node_modules/@vuepress/plugin-meilisearch/node_modules/.bin/
           pnpm vp-meilisearch-scrapper scr/ scraper.json
 
       - name: Run Docs-Scraper
