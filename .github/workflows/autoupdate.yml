@@ -101,7 +101,10 @@ jobs:
           node-version: 22
 
       - name: Generate Only URLs
-        run: pnpm vp-meilisearch-scrapper scr/ scraper.json
+          
+        run: |
+          pnpm install vp-meilisearch-scrapper
+          pnpm vp-meilisearch-scrapper scr/ scraper.json
 
       - name: Run Docs-Scraper
         env:
