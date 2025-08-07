@@ -104,7 +104,7 @@ jobs:
       - name: Generate Only URLs
           
         run: |
-          ls
+          pnpm list @vuepress/plugin-meilisearch || pnpm add @vuepress/plugin-meilisearch --save-dev
           pnpm vp-meilisearch-scrapper scr/ scraper.json
 
       - name: Run Docs-Scraper
