@@ -87,6 +87,10 @@ jobs:
     needs: upload
     runs-on: ubuntu-latest
     steps:
+      - name: Wait For 5 Seconds
+        run: sleep 5
+        shell: bash
+
       - name: Update RemoteScrape
         uses: appleboy/ssh-action@v1.0.3
         with:
