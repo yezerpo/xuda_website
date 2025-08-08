@@ -95,4 +95,5 @@ jobs:
           key: ${{ secrets.REMOTE_SSH_KEY }}
           passphrase: ${{ secrets.REMOTE_SSH_PASSPHRASE }}
           script: |
+            cd /opt/1panel/www/sites/srch.yezer.cn/index
             docker run -t --rm --network=host -e MEILISEARCH_HOST_URL='https://srch.yezer.cn' -e MEILISEARCH_API_KEY='${{ secrets.MEILISEARCH_API_KEY }}' -v ./scraper.json:/docs-scraper/config.json getmeili/docs-scraper:latest pipenv run ./docs_scraper config.json
