@@ -41,7 +41,7 @@ export default hopeTheme({
   plugins: {
     meilisearch: {
       host: "https://srch.yezer.cn",
-      apiKey: "b21eec0c327ff30c8ed9e80aab228ce4e2c6b75be9c005b14774a51cf285d211",
+      apiKey: "e7c181e18e5d309514f2299943f864f48d1c7d659fc10bfda6ff6859c2771aae",
       indexUid: "xuda_website",
       hotKeys: [],
     },
