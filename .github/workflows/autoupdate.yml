@@ -86,33 +86,12 @@ jobs:
     needs: upload
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+      - name: Execute remote command via SSH
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          version: latest
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Generate Only URLs
-          
-        run: |
-          pnpm i -D @vuepress/plugin-meilisearch@next
-          pnpm vp-meilisearch-scrapper scr/ scraper.json
-
-      - name: Run Docs-Scraper
-        env:
-          HOST_URL: https://srch.yezer.cn/
-          API_KEY: ${{ secrets.MEILISEARCH_MASTER_KEY }}
-          CONFIG_FILE_PATH: ${{ github.workspace }}/scraper.json
-        run: |
-          docker run -t --rm \
-            -e MEILISEARCH_HOST_URL=$HOST_URL \
-            -e MEILISEARCH_API_KEY=$API_KEY \
-            -v $CONFIG_FILE_PATH:/docs-scraper/config.json \
-            jqiue/docs-scraper:latest pipenv run ./docs_scraper config.json
+          host: ${{ secrets.REMOTE_HOST }}
+          port: ${{ secrets.REMOTE_PORT }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.REMOTE_SSH_KEY }}
+          script: |
+            echo "Connected to remote server successfully"
