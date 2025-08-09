@@ -11,8 +11,8 @@ export default defineUserConfig({
     ]
   ],
   lang: "zh-CN",
-  title: "",
-  description: "",
+  title: "徐工指南",
+  description: "旨在为徐工在校学生提供必要的生活指南",
   theme,
 
   plugins: [

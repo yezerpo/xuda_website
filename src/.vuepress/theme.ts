@@ -5,8 +5,9 @@ import sidebar from "./sidebar.js";
 
 export default hopeTheme({
   hostname: "https://xuda.live",
+  favicon: "/favicon.ico",
+  logo: "/logo.svg",
   docsDir: "src",
-
   // 导航栏
   navbar,
 

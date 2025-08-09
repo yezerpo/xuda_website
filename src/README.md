@@ -3,8 +3,8 @@ home: true
 icon: house
 title: 首页
 heroImage: logo.png
-heroText: 徐工生活指北
-tagline: 旨在为徐工在校学生提供最新的生活指南
+heroText: 徐工生活指南
+tagline: 旨在为徐工在校学生提供必要的生活指南
 
 actions:
   - text: 新生入口
