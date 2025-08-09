@@ -5,7 +5,6 @@ import sidebar from "./sidebar.js";
 
 export default hopeTheme({
   hostname: "https://xuda.live",
-  repo: "yezerpo/xuda_website",
   docsDir: "src",
 
   // 导航栏
@@ -15,14 +14,9 @@ export default hopeTheme({
   sidebar,
 
   // 页脚
-  footer: "苏ICP备2024137980号",
-  copyright: "CC BY-NC-ND 4.0",
+  footer: "合法备案 | 苏ICP备2024137980号",
+  copyright: `使用 <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans">CC BY-NC-ND 4.0</a> 协议`,
   displayFooter: true,
-
-  // 多语言配置
-  metaLocales: {
-    editLink: "在 GitHub 上编辑此页",
-  },
 
   pageInfo: false,
 
@@ -44,11 +38,6 @@ export default hopeTheme({
       apiKey: "e7c181e18e5d309514f2299943f864f48d1c7d659fc10bfda6ff6859c2771aae",
       indexUid: "xuda_website",
       hotKeys: [],
-    },
-    
-    comment: {
-      provider: "Twikoo",
-      envId: "https://cmts.yezer.cn",
     },
 
     components: {
