@@ -18,6 +18,18 @@ a.vp-skip-link.sr-only{
 	transition: all 300ms;
 }
 
+a.route-link.auto-link.vp-hero-action.primary.no-external-link-icon{
+	border-radius: 1rem;
+}
+
+.vp-page.not-found .action-button {
+	border-radius: 1rem;
+}
+
+.error-hint{	
+	display: none;
+}
+
 .vp-feature-item {
 	@media (width >= 1440px) {
 		flex-basis: calc(33% - 3rem);

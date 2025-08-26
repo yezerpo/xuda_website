@@ -4,7 +4,7 @@ icon: streamline-sharp-color:select-all-flat
 order: 1
 ---
 
-![](/map.webp)
+![徐州工程学院地图](/map.webp)
 
 <div class="vp-card-container">
   <VPCard
