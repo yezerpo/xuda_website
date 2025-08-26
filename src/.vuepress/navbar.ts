@@ -8,11 +8,6 @@ export default navbar([
     link: "freshman/",
   },
   {
-      text: "资料库",
-      icon: "circle-info",
-      children: [""],
-  },
-  {
     text: "下载中心",
     icon: "vaadin:download",
     link: "dlcenter/",

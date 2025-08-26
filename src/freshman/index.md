@@ -4,6 +4,8 @@ icon: streamline-sharp-color:select-all-flat
 order: 1
 ---
 
+![](/map.webp)
+
 <div class="vp-card-container">
   <VPCard
     title="历年分数"

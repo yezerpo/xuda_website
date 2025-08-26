@@ -6,7 +6,6 @@ import sidebar from "./sidebar.js";
 export default hopeTheme({
   hostname: "https://xuda.live",
   favicon: "/favicon.ico",
-  logo: "/logo.svg",
   docsDir: "src",
   // 导航栏
   navbar,
@@ -20,6 +19,7 @@ export default hopeTheme({
   displayFooter: true,
 
   pageInfo: false,
+  darkmode: "disable",
 
   // 仅保留用到的功能。
     markdown: {
