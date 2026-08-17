@@ -70,11 +70,3 @@ jobs:
       - name: Upload to COS
         run: |
           coscmd upload -rs data/ /api/xzitpocket/
-
-      - name: Scrape docs for MeiliSearch
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.MEILISEARCH_HOST }}
-          username: root
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: /root/scrape-docs.sh

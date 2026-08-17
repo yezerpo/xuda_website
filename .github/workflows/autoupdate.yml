@@ -129,11 +129,3 @@ jobs:
           json.dump(entries, open('xuda-data/commits.json', 'w'), ensure_ascii=False)
           "
           coscmd upload -rs xuda-data/ /api/xuda/
-
-      - name: Scrape docs for MeiliSearch
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.MEILISEARCH_HOST }}
-          username: root
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: /root/scrape-docs.sh

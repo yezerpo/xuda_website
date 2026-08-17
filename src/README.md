@@ -19,6 +19,4 @@ actions:
 
 ---
 
-<ClientOnly><ChatAssistant /></ClientOnly>
-
 <ClientOnly><FeatureCards /></ClientOnly>
