@@ -8,7 +8,6 @@ export default sidebar({
        icon: "fluent-emoji-flat:graduation-cap",
        collapsible: true,
        children: [
-         "score",
          "checkin",
          "dorm",
          "items",

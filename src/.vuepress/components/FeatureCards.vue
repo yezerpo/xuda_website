@@ -33,12 +33,6 @@ import "vuepress-theme-hope/styles/home/feature-panel.scss";
 
 const features = [
   {
-    title: '分数预测',
-    icon: 'chart-line',
-    details: '高考分数线预测与录取参考（仅供参考）',
-    link: '/guide/score.html',
-  },
-  {
     title: '常见问题',
     icon: 'fluent-emoji-flat:thinking-face',
     details: '宿舍、课程、网络、门禁等高频问题',

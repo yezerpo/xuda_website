@@ -8,7 +8,6 @@ export default defineClientConfig({
     app.component("GitHubActivity", GitHubActivity);
     if (!__VUEPRESS_SSR__) {
       app.component("FeatureCards", defineAsyncComponent(() => import("./components/FeatureCards.vue")));
-      app.component("ScorePredictChart", defineAsyncComponent(() => import("./components/ScorePredictChart.vue")));
     }
     app.provide("xzitpocketConfig", xzitpocketConfig);
   },

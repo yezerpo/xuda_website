@@ -9,7 +9,7 @@ tagline: 旨在为徐工在校学生提供必要的生活指南
 actions:
   - text: 新生知道
     icon: book
-    link: /guide/score.html
+    link: /guide/
     type: primary
 
   - text: 校园社群
