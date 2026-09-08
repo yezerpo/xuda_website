@@ -41,7 +41,17 @@ jobs:
       - name: Sync latest xzitpocket APK & download link
         run: |
           mkdir -p data
-          RELEASES=$(curl -sf "https://api.github.com/repos/lose2me/xzitpocket/releases?per_page=30" || echo "[]")
+          RELEASES=""
+          for i in 1 2 3 4 5; do
+            RELEASES=$(curl -sf "https://api.github.com/repos/lose2me/xzitpocket/releases?per_page=30" || true)
+            if [ -n "$RELEASES" ] && echo "$RELEASES" | python3 -c "import json,sys; json.load(sys.stdin)" 2>/dev/null; then
+              break
+            fi
+            RELEASES=""
+            sleep $((i*5))
+          done
+          [ -z "$RELEASES" ] && RELEASES="[]"
+          echo "$RELEASES" > data/releases.json
           APK_VERSION=$(echo "$RELEASES" | python3 -c "
           import json,sys
           for r in json.load(sys.stdin):
@@ -58,7 +68,7 @@ jobs:
           ")
           echo "[xzitpocket] latest APK_VERSION=${APK_VERSION}"
           if [ -n "$APK_VERSION" ] && [ -n "$APK_URL" ]; then
-            curl -fL --connect-timeout 10 --max-time 120 "$APK_URL" -o "data/app-arm64-v8a-${APK_VERSION}.apk" || echo "APK download failed, skipping"
+            curl -fL --retry 3 --retry-delay 3 --connect-timeout 15 --max-time 300 "$APK_URL" -o "data/app-arm64-v8a-${APK_VERSION}.apk" || echo "APK download failed, skipping"
             VERSION="$APK_VERSION" python3 -c "
           import json, os
           cfg_path = 'xzitpocket.config.json'
@@ -108,7 +118,6 @@ jobs:
       - name: Sync xzitpocket data
         run: |
           mkdir -p data/images
-          curl -sf "https://api.github.com/repos/lose2me/xzitpocket/releases?per_page=30" -o data/releases.json || echo "[]" > data/releases.json
           git clone --bare https://github.com/lose2me/xzitpocket.git /tmp/xzitpocket-bare 2>/dev/null && \
             git --git-dir=/tmp/xzitpocket-bare log --format='%H%x00%aN%x00%aI%x00%B%x00' | python3 -c "
           import sys, json
