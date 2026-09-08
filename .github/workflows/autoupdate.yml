@@ -135,7 +135,6 @@ jobs:
               done
           fi
           coscmd upload -rs data/ /api/xzitpocket/
-          coscmd delete /api/xzitpocket/app-arm64-v8a-release.apk -f || echo "legacy static APK not found"
 
       - name: Sync xuda commits
         run: |
